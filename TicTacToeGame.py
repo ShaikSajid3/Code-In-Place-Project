@@ -40,7 +40,7 @@ def findIndex(row,col):
 def main():
     # Create the canvas
     canvas = Canvas(CANVAS_WIDTH, CANVAS_HEIGHT)
-    canvas.create_text(140,50,text="Tic Tac Toe", font_size=20)
+    canvas.create_text(140,50,text="Tic Tac Toe", font_size=20,color="mediumorchid")
     # Draw the grid of rectangles
     for row in range(1,4):
         for col in range(1,4):
@@ -48,7 +48,7 @@ def main():
             y1 = row * BOX_SIZE 
             x2 = x1 + BOX_SIZE
             y2 = y1 + BOX_SIZE
-            canvas.create_rectangle(x1, y1, x2, y2,"white",outline="black")
+            canvas.create_rectangle(x1, y1, x2, y2,"lemonchiffon",outline="black")
     
     # Display changeable text below the grid
     turntext=canvas.create_text(140, 350, text="Game Starts", font_size=14)
@@ -61,10 +61,10 @@ def main():
         if player%2 == 1:
             player = 1
             flag=True
-            turntext = canvas.create_text(140, 350, text="Player1's turn", font_size=14)
+            turntext = canvas.create_text(160, 350, text="Your turn", font_size=14,color="darkslategray")
         else:
             player = 2
-            turntext = canvas.create_text(140, 350, text="Computer's turn", font_size=14)
+            turntext = canvas.create_text(140, 350, text="Computer's turn", font_size=14,color="darkslategray")
 
         if player == 1:
             while flag:
@@ -132,12 +132,12 @@ def main():
     if status==1:
         canvas.delete(turntext)
         if player-1==1:
-            turntext = canvas.create_text(140, 350, text="Player1 (Human) wins", font_size=16)
+            turntext = canvas.create_text(80, 350, text="Congratulations, You have won the game", font_size=16,color="springgreen")
         else:
-            turntext = canvas.create_text(140, 350, text="Player2 (Computer) wins", font_size=16)
+            turntext = canvas.create_text(140, 350, text="Computer wins", font_size=16,color="teal")
     else:
         canvas.delete(turntext)
-        turntext = canvas.create_text(140, 350, text="Game Draw", font_size=16)
-    canvas.create_text(120,370,text="Game ends! Run again to play", font_size=14)
+        turntext = canvas.create_text(140, 350, text="Game is Draw", font_size=16,color="gold")
+    canvas.create_text(130,370,text="Game ends! Run again to play", font_size=14,color="salmon")
 if __name__ == "__main__":
     main()
